@@ -1,0 +1,38 @@
+Problem komiwojażera 16 miast
+Praca z implementacją grafu 
+1 założenia projektu - plik txt założenia projektu, projekt layout, wygląd i rozwiązania. 
+2 projekt layout. 
+3 wizualizacja wyników. 
+4 wygoda wprowadzenie danych. 
+5 przechowywanie wyników jako plik graficzny zapisany w urządzeniu. 
+6 liczba commitów
+
+
+
+2 wymiarowa tablica (array) 16x16 jesli n ma miasta to wartosc 0 a jak jest to odległość. 
+
+
+
+
+1. Funkcjonalność i rozwiązania.: Aby rozwiązać dość skomplikowany problem jakim jest problem komiwojażera musimy skorzystać z grafów. Należy podzielić zbiór rozwiązań na kilka podzbiorów. Nasz graf będzie szesnastowierzchołukowy a między miastami będziemy mieli odległość między nimi. Jeżeli jakiegoś miasta nie ma to jego wartość odległości przyjmujemy jako 0. 
+Macierz opisujaca graf.: 
+1. 2. 3. 4. 5. 6. 7. 8. 9. 10.11. 12.13.14.15.16.
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+12
+14
+15 
+16 
+Miedzy nimi zostaną wpisane jakieś odległości.  Ustalamy jaka wartosc możemy największą odjąć od każdej kolumny (pionowo). Gdy mamy nowy graf na dole wypisujemy ile zostało odjęte. Chronologicznie robimy to samo w poziomie. Wykreślamy z macierzy kolejno kolumny i odejmujemy aż zostanie nam macierz grafu 2x2. Odjęte kolumny (w pionie i poziomie) chronologicznie będą tworzyły nam drogi, jakie pokonał nasz graf. Należy je jeszcze uporządkować. Otrzymujemy wartosc LB która poznajemy w ostatnim kroku. Musimy sprawdzić, czy w czasie kolejnych redukcji nie wyjdzie nam mniejsze LB niż dotychczas. Jeśli znajdziemy takie LB oznacza to iż zadanie ma więcej niż jedno rozwiązanie i musimy przeanalizować macierz z punktu o mniejszym LB niż LB końcowe. Teraz trzeba przekształcić macierz. Musimy odjąć te liczby tworząc nową macierz, ale o tym samym rozmiarze. 0 na pozycji, na której dokonujemy zmiany staje się natomiast   nieskończonością. Następnie tak samo redukujemy macierz do rozmiaru 2x2. Dalsza redukcja nie jest możliwa. Musimy tak rozpatrzyć każde rozwiązanie. Otrzymamy w ten sposób rozwiązanie problemu. 
+Wygląd.: Aplikacja bedzie posiadała graf. Przydałby się także przycisk, zliczający grafy. Po naciśnięciu przycisku zostaje wyświetlona droga oraz jej długość. 
+
+
