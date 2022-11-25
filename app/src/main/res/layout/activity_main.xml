@@ -18,7 +18,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="31dp"
+            android:layout_height="38dp"
             android:orientation="horizontal">
 
             <TextView
@@ -56,11 +56,14 @@
                 android:layout_weight="1"
                 android:text="od.:" />
 
-            <ListView
-                android:id="@+id/miasto_od"
+            <Spinner
+                android:id="@+id/od_miasto"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -78,13 +81,12 @@
                 android:text="do.:"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <ListView
-                android:id="@+id/miasto_do"
+            <Spinner
+                android:id="@+id/do_miasto"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout

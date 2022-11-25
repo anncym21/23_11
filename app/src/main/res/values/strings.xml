@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">23_11</string>
+    <string-array name="miasta">
+        <item>Gdańsk</item>
+        <item>Olsztyn</item>
+        <item>Białystok</item>
+        <item>Warszawa</item>
+        <item>Bydgoszcz</item>
+        <item>Koszalin</item>
+        <item>Szczecin</item>
+        <item>Zielona góra</item>
+        <item>Poznań</item>
+        <item>Łódź</item>
+        <item>Kielce</item>
+        <item>Lublin</item>
+        <item>Rzeszów</item>
+        <item>Kraków</item>
+        <item>Katowice</item>
+        <item>Wrocław</item>
+    </string-array>
 </resources>
