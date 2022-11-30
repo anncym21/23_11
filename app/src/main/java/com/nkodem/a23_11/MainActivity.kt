@@ -11,7 +11,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        fun main(ards: Array<String>){
+            val rows = 2
+            val columns = 2
+            val odMatrix = arrayOf(intArrayOf(), intArrayOf())
+            val doMatrix = arrayOf(intArrayOf(), intArrayOf())
 
+            val sum = Array(rows) { IntArray(columns)}
+
+        }
     }
 
     
