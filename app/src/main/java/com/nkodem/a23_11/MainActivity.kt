@@ -14,11 +14,19 @@ class MainActivity : AppCompatActivity() {
 
         val rarity = resources.getStringArray(R.array.dystans)
         val randomRarity = rarity.random()
+        val countRarity = rarity.count()
         val zmien = findViewById(R.id.zmien) as Button
         val dystans = findViewById(R.id.dystans) as TextView
 
         zmien.setOnClickListener {
                 dystans.setText(randomRarity)
+        }
+
+        val test = findViewById(R.id.test) as Button
+        val testowy = findViewById(R.id.testowy) as TextView
+
+        test.setOnClickListener {
+            testowy.setText(countRarity)
         }
 
         fun main(ards: Array<String>){
