@@ -17,11 +17,19 @@ class MainActivity : AppCompatActivity() {
             val odMatrix = arrayOf(intArrayOf(), intArrayOf())
             val doMatrix = arrayOf(intArrayOf(), intArrayOf())
 
-            var arr = arrayOf(intArrayOf(1,2,3,4), intArrayOf(5,6,7,8))
-            for (row in arr){
-                println(row.contentToString())
+            val sum = Array(rows){ IntArray(columns)}
+            for(i in 0..columns - 1){
+                for(j in 0..columns - 1){
+                    sum[i][j] = odMatrix[i][j] + doMatrix[i][j]
+                }
             }
-
+            println("suma.: ")
+            for(row in sum){
+                for(columns in row){
+                    print("$columns ")
+                }
+                print("Miasta.: ")
+            }
         }
     }
 
