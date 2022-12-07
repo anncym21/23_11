@@ -10,7 +10,7 @@
         <item>Szczecin</item>
         <item>Zielona góra</item>
     </string-array>
-    <array name="dystans">
+    <string-array name="dystans">
         <item>1528.13</item>
         <item>1757.54</item>
         <item>1062.89</item>
@@ -19,5 +19,5 @@
         <item>3006.93</item>
         <item>504.64</item>
         <item>1374.91</item>
-    </array>
+    </string-array>
 </resources>
