@@ -1,5 +1,6 @@
 package com.nkodem.a23_11
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         val dystans = findViewById(R.id.dystans) as TextView
 
         zmien.setOnClickListener {
-                dystans.setText(randomRarity)
+            //val intent = Intent(this, dystans::class.java)
+            //startActivity(intent)
+            dystans.setText(randomRarity)
         }
 
         val test = findViewById(R.id.test) as Button
