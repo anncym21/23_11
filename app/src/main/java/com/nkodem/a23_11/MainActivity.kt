@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import org.jgrapht.DirectedGraph
+import org.jgrapht.Graph
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             testowy.setText(countRarity)
         }
 
-        fun main(ards: Array<String>){
+        /*fun main(ards: Array<String>){
             val rows = 2
             val columns = 2
             val odMatrix = arrayOf(intArrayOf(), intArrayOf())
@@ -51,6 +54,39 @@ class MainActivity : AppCompatActivity() {
                 }
                 print("Miasta.: ")
             }
+        }*/
+        data class Edge(val source: String, val target: String, val duration: Int)
+        fun Interable<Edge>.duration() = sumBy {it.duration}
+        fun Interable<Edge>.visited() = map {it.source} + last().target
+        operator fun <V> Graph <V, *>.plusAssign(vertex:V){addVertex(vertex)}
+        operator fun Graph<String, Edge>.plusAssign(edge:Edge){addEdge(edge.source, edge.target, edge)}
+        fun main(args: Array<String>) {
+            val graph = SimpleDirectedGraph<String, Edge>(Edge::class.java)
+            input.lines().forEach{ line
+                val (route, duration) = line.split(" = ")
+                val  (source, target) = route.split(" to ")
+
+                graph += source
+                graph += target
+                graph += Edge(source, target, duration.toInt())
+                graph += Edge(target, source, duration.toInt())
+
+            }
+            graph.findTravellingsalesmanRoute()?.let{
+                println("Visited ${route.visited()} in ${route.duration()}")
+            }
+        }
+        fun DirectedGraph<String, Edge>.findTravellingsalesmanRoute(route:List<Edge>? = null): List<Edge>?{
+            val routes = if (route == nul){
+                edgeSet().map { findTravellingsalesmanRoute(listOf(it))}
+            }else if(route.visited().toSet() == vertexSet()){
+                listOf(route)
+            }else{
+                outgoingEdgesOf(route.last().target)
+                    .filterNO { route.visited().constains(it.target)}
+                    .map { findTravellingsalesmanRoute(route + it)}
+            }
+            return routes.filterNotNull().minBy {it.duration()}
         }
     }
 
