@@ -1,13 +1,14 @@
 package com.nkodem.a23_11
 
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
-import org.jgrapht.DirectedGraph
-import org.jgrapht.Graph
+
 
 
 
@@ -15,6 +16,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val image = findViewById<ImageView>(R.id.image)
+        val screen: Button = findViewById(R.id.ss)
+        screen.setOnClickListener {
+            val b: Bitmap = Screenshot.takeScreenshotOfRootView(image)
+            image.setImageBitmap(b)
+
+        }
 
         val rarity = resources.getStringArray(R.array.dystans)
         val randomRarity = rarity.random()
@@ -35,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             testowy.setText(countRarity)
         }
 
-        /*fun main(ards: Array<String>){
+        fun main(ards: Array<String>){
             val rows = 2
             val columns = 2
             val odMatrix = arrayOf(intArrayOf(), intArrayOf())
@@ -54,8 +62,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 print("Miasta.: ")
             }
-        }*/
-        data class Edge(val source: String, val target: String, val duration: Int)
+        }
+        /*data class Edge(val source: String, val target: String, val duration: Int)
         fun Interable<Edge>.duration() = sumBy {it.duration}
         fun Interable<Edge>.visited() = map {it.source} + last().target
         operator fun <V> Graph <V, *>.plusAssign(vertex:V){addVertex(vertex)}
@@ -87,9 +95,20 @@ class MainActivity : AppCompatActivity() {
                     .map { findTravellingsalesmanRoute(route + it)}
             }
             return routes.filterNotNull().minBy {it.duration()}
-        }
+        }*/
     }
 
-    
+    companion object Screenshot {
+        private fun takeScreenshot(view: View): Bitmap{
+            view.isDrawingCacheEnabled = true
+            view.buildDrawingCache(true)
+            val b = Bitmap.createBitmap(view.drawingCache)
+            view.isDrawingCacheEnabled = false
+            return b
+        }
+        fun takeScreenshotOfRootView(v: View): Bitmap {
+            return takeScreenshot(v.rootView)
+        }
+    }
 
 }
