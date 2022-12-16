@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         }*/
     }
 
-    companion object Screenshot {
+    companion object Screenshot  {
         private fun takeScreenshot(view: View): Bitmap{
             view.isDrawingCacheEnabled = true
             view.buildDrawingCache(true)
