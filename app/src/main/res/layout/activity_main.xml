@@ -121,6 +121,12 @@
                 android:layout_height="wrap_content"
                 android:text="Droga" />
 
+            <Button
+                android:id="@+id/ss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="zrzut ekranu" />
+
             <TextView
                 android:id="@+id/testowy"
                 android:layout_width="match_parent"
@@ -133,15 +139,8 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_launcher_background" />
 
-            <Button
-                android:id="@+id/ss"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="zrzut ekranu" />
 
-
-
-                <LinearLayout
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" />
